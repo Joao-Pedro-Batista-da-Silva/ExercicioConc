@@ -1,3 +1,7 @@
+// Código de produto interno sequencial
+// Aluno - João Pedro Batista da Silva
+// DRE - 121053174
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -36,31 +40,31 @@ int main(int argc, char *argv[]){
         printf("ERRO \nNao foi possivel abrir arquivo para escrever");
         return 3;
     }
-    printf("dimensao:%d\n",n_vec);
+    //printf("dimensao:%d\n",n_vec);
     ret = fwrite(&n_vec, sizeof(int), 1, output_file);
-    printf("vector1-----\n");
-    for(int i = 0; i<n_vec;i++){
-        printf("%f ",vec1[i]);
-    }
+    //printf("vector1-----\n");
+    //for(int i = 0; i<n_vec;i++){
+    //    printf("%f ",vec1[i]);
+    //}
     ret = fwrite(vec1, sizeof(float), n_vec, output_file);
     if(ret < n_vec) {
         printf("ERRO \nNao foi possivel escrever no  arquivo\n");
         return 4;
     }
-    printf("\nvector2-----\n");
-    for(int i = 0; i<n_vec;i++){
-        printf("%f ", vec2[i]);
-    }
+    //printf("\nvector2-----\n");
+    //for(int i = 0; i<n_vec;i++){
+    //    printf("%f ", vec2[i]);
+    //}
     ret = fwrite(vec2, sizeof(float), n_vec, output_file);
     if(ret < n_vec) {
         printf("ERRO \nNao foi possivel escrever no  arquivo\n");
         return 4;
    }
-   printf("\n%lf\n",prod_int);
     ret = fwrite(&prod_int, sizeof(double),1,output_file);
     
     fclose(output_file);
     free(vec1);
     free(vec2);
+    printf("\n%lf\n",prod_int);
     return 0;
 }

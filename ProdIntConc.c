@@ -1,3 +1,7 @@
+// Código de produto interno Concorrente
+// Aluno - João Pedro Batista da Silva
+// DRE - 121053174
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -20,11 +24,11 @@ void* prod_interno(void *args){
         printf("ERRO\nNao foi possivel criar struct de apoio\n");
         pthread_exit(NULL);
     }
-    printf("Estou na thread:%d-------\n",arg->id_thread);
+    //printf("Estou na thread:%d-------\n",arg->id_thread);
     for(int i = arg->init; i< arg->size_vec; i+=arg->n_threads){
-        printf("vec1[%d]:%f\nvec2[%d]:%f\n",i, arg->vec1[i],i,arg->vec2[i]);
+        //printf("vec1[%d]:%f\nvec2[%d]:%f\n",i, arg->vec1[i],i,arg->vec2[i]);
         ret->soma += arg->vec1[i] * arg->vec2[i];
-        printf("soma: %f\n",ret->soma);
+        //printf("soma: %f\n",ret->soma);
     }
     free(arg);    
     pthread_exit((void*) ret);
