@@ -40,7 +40,7 @@ int main(int argc, char *argv[]){
     FILE *arq;
     pthread_t *tid;
     size_t ret;
-    double soma_final=0;
+    double soma_final=0.0;
     t_ret *retorno;
     double valor_seq, var_rel;
     if(argc<3){
@@ -125,6 +125,6 @@ int main(int argc, char *argv[]){
     ret = fwrite(&soma_final, sizeof(double), 1, arq);
     fclose(arq);
     var_rel = abs((valor_seq-soma_final)/valor_seq);
-    printf("variacao relativa:%f\n",var_rel);
+    printf("variacao relativa:%.15f\n",var_rel);
     return 0;
 }

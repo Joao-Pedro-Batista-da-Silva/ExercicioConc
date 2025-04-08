@@ -29,9 +29,9 @@ int main(int argc, char *argv[]){
     
     srand(time(NULL));
     for(int i =0; i< n_vec; i++){
-        num1 = (rand()%10)/5.0;
+        num1 = (rand()%100)/7.0;
         vec1[i] = num1;
-        num2 = (rand()%10)/2.0;
+        num2 = (rand()%100)/13.0;
         vec2[i] = num2;
         prod_int += vec1[i]*vec2[i];
     }
