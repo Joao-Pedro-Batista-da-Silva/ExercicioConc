@@ -24,6 +24,7 @@ void* prod_interno(void *args){
         printf("ERRO\nNao foi possivel criar struct de apoio\n");
         pthread_exit(NULL);
     }
+    ret->soma = 0.0;
     //printf("Estou na thread:%d-------\n",arg->id_thread);
     for(int i = arg->init; i< arg->size_vec; i+=arg->n_threads){
         //printf("vec1[%d]:%f\nvec2[%d]:%f\n",i, arg->vec1[i],i,arg->vec2[i]);
@@ -115,7 +116,7 @@ int main(int argc, char *argv[]){
         }
         soma_final += retorno->soma;
     }
-    
+    free(retorno);
     printf("soma final:%f\n",soma_final);
     arq = fopen(argv[2], "ab");
     if(!arq){
